@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Color</title>
+<style>
+p{
+  text-align: center;
+  font-size: 24pt;
+  background-color: lightblue;
+}
+
+#first{
+  background-color: yellow;
+}
+
+#second{
+  text-align: left;
+}
+
+#third{
+  font-size: 12pt;
+  text-align: right;
+}
+
+.dark{
+  background-color: black;
+	color: white;
+}
+
+.light{
+  background-color: white;
+	color: black;
+	font-style: italic;
+}
+
+.highlighted{
+  border: thick dotted red;
+}
+</style>
+<script>
+function addParagraph(){
+
+var newPDiv = document.createElement("p");
+
+var pContent = document.createTextNode("I'm a secret");
+
+newPDiv.appendChild(pContent);
+
+var containerDiv = document.getElementById("container");
+
+containerDiv.appendChild(newPDiv);
+}
+
+function deleteParagraph(){
+
+document.getElementById("deleteMe").remove();
+}
+function clicked() {
+			document.getElementById('clickMe').innerHTML = "Thanks!";
+		}
+		
+		function addClickListener(){
+			document.getElementById("clickMe").addEventListener("click", clicked);
+		}
+
+var lives = 1
+;
+if(lives){
+	document.write("You're alive!");
+}
+else{
+	document.write("You're dead! Spooky.");
+}
+
+</script>
+</head>
+<body onload="addClickListener()">
+<button id="changeGreen">Change Font Color Green</button>
+<button id="changeRed">Change Font Color Red</button>
+<p id="first">
+<span id="output">Learn the test-driven development approach when building apps</span>
+</p>
+<p id="clickMe">Click me!</p>
+<p class="dark" id="deleteMe" onclick="addParagraph()">Add</p>
+<p id="second" onclick="deleteParagraph()">Delete</p>
+<div id="container"></div>
+<script>
+
+document.getElementById("changeGreen").onclick = function(){
+	document.getElementById("output").style.color = 'green';
+}
+
+document.getElementById("changeRed").onclick = function(){
+	document.getElementById("output").style.color = 'red';
+}
+</script>
+</body>
+</html>
